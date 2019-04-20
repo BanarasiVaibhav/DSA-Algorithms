@@ -14,6 +14,7 @@ print(a)
 
 
 # New improved code with values of i and j
+# I have no idea wich sort is this
 a=[9,6,5,2,1]
 for i in range(len(a)):                           # outer loop variable i 
     for j in range(i+1,len(a)):                   # inner loop variable j
