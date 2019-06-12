@@ -7,9 +7,19 @@ class linked_list:
 
     def __init__(self):
         self.head=node()
+    
+    # please check its indentation 
+    def insert(self,index,data):
+        new_node=node(data)
+        cur_node=self.head
+        for i in range(index):
+            cur_node=cur_node.next
+        new_node.next=cur_node.next
+        cur_node.next=new_node
 
 
-
+        
+        
     def append(self,data):
         new_node=node(data)
         cur=self.head
@@ -54,4 +64,7 @@ my_list.display()
 my_list.erase(4)
 my_list.display()
 my_list.append(1729)
+my_list.display()
+
+my_list.insert(2,'new_insert_at_position_2')
 my_list.display()
