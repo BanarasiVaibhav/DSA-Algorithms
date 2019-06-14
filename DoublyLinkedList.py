@@ -13,17 +13,9 @@ class DoublyLinkedList:
         if self.start_node is None:
             new_node = Node(data)
             self.start_node=new_node
-            print("Node added succesfully to empty Linked list")
+
         else:
             print("List not empty")
-    def insert_at_last(self,data):
-        cur=self.start_node
-        while cur.nref != None:
-            cur=cur.nref
-        new_node=Node(data)
-        cur.nref=new_node
-        new_node.pref=cur
-        print("Node added succesfully to Linked list")
 
     def insert_at_start(self,data):
         new_node=Node(data)
@@ -31,49 +23,68 @@ class DoublyLinkedList:
         self.start_node.pref=new_node
         self.start_node=new_node
 
+
+
+
+    def insert_at_last(self,data):
+        cur=self.start_node
+        while cur.nref != None:
+            cur=cur.nref
+        new_node=Node(data)
+        cur.nref=new_node
+        new_node.pref=cur
+
+
     def display(self):
         cur=self.start_node
-        while cur.nref!=None:
-            cur=cur.nref
+        while cur!=None:
             print(cur.item)
+            cur = cur.nref
 
     def insert_after_item(self,data,value_in_list):
-        # data  is input data in new node
-        # value is already existing value in the list
-        print("I am inside insert_after_item function")
         cur=self.start_node
-        if cur.item is not value_in_list:
-            print("I am inside insert_after_item function if part")
+        while cur.item != value_in_list:
             cur=cur.nref
+        new_node=Node(data)
+        new_node.nref=cur.nref
+        new_node.pref=cur
+        cur.nref=new_node
 
-
-            new_node=Node(data)
-
-            new_node.nref=cur.nref
-            new_node.pref=cur
-            cur.nref=new_node
-
+    def insert_before_item(self,data,value_in_list):
+        cur=self.start_node
+        while cur.item != value_in_list:
+            cur=cur.nref
+        new_node=Node(data)
+        new_node.pref=cur.pref
+        new_node.nref=cur
+        cur.pref=new_node
+        new_node.pref.nref=new_node
 
 
 my_list=DoublyLinkedList()
-
-
-
-my_list.insert_in_empty('first')
-my_list.insert_at_last(2)
-my_list.insert_at_last(3)
-my_list.insert_at_last(4)
-#my_list.insert_at_last('last')
-
-
-
-print()
-print()
+my_list.insert_in_empty("start")
+my_list.insert_at_last("last1")
+my_list.insert_at_last("last2")
+my_list.insert_at_last("last3")
+my_list.insert_at_last("last4")
+my_list.insert_at_last("last5")
+my_list.insert_at_last("last6")
+my_list.insert_at_start('start4')
+my_list.insert_at_start('start3')
+my_list.insert_at_start('start2')
+my_list.insert_at_start('start1')
 my_list.display()
-my_list.insert_after_item('data to be inserted after last','last')
-
-
 
 print()
 print()
+print()
+
+my_list.insert_after_item("inserted afer last6","last6")
+my_list.insert_after_item("inserted afer last4","last4")
+
+
+my_list.insert_before_item("inserted before last6","last6")
+my_list.insert_before_item("inserted before last3","last3")
+
+
 my_list.display()
