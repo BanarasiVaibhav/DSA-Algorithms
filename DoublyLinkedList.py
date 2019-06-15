@@ -66,7 +66,14 @@ class DoublyLinkedList:
         while cur.nref != None:
             cur=cur.nref
         cur.pref.nref=None
+        cur.pref=None  
+    
+    def delete_from_start(self):
+        cur=self.start_node
+        second_element=cur.nref
+        cur=cur.nref
         cur.pref=None
+        self.start_node=cur        
 
 my_list=DoublyLinkedList()
 my_list.insert_in_empty("start")
