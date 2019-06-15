@@ -59,7 +59,14 @@ class DoublyLinkedList:
         new_node.nref=cur
         cur.pref=new_node
         new_node.pref.nref=new_node
-
+        
+        # check for indentation
+    def delete_from_last(self):
+        cur=self.start_node
+        while cur.nref != None:
+            cur=cur.nref
+        cur.pref.nref=None
+        cur.pref=None
 
 my_list=DoublyLinkedList()
 my_list.insert_in_empty("start")
@@ -87,4 +94,14 @@ my_list.insert_before_item("inserted before last6","last6")
 my_list.insert_before_item("inserted before last3","last3")
 
 
+my_list.display()
+
+
+
+print()
+print()
+print()
+my_list.delete_from_last()
+my_list.delete_from_last()
+my_list.delete_from_last()
 my_list.display()
