@@ -1,17 +1,22 @@
 #insertion  sort from introduction to algorithm CLRS
+import random
 
+def insertionSort(arr):
+    for i in range(1,len(arr)):
+        key=arr[i]
+        j=i-1
+        while j>=0 and arr[j]<key:
+            arr[j+1]=arr[j]
+            j=j-1
+        arr[j+1]=key
+    return arr 
 
-a=[1,23,45,22,34,56,3,77,54,6]
-for j in range(2,len(a)):
-    key =a[j]
-    i = j-1
-    while i >0 and a[i]>key:
-        a[i+1]=a[i]
-        i=i-1
-    a[i+1]=key
-
-print(a)
-
+arr=[]
+for i in range(0,100):
+    arr.append(random.randint(0,100))
+print(arr)
+insertionSort(arr)
+=========================================================================================================================================
 
 # New improved code with values of i and j
 # I have no idea wich sort is this
