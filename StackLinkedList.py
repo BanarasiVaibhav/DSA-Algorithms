@@ -34,9 +34,6 @@ class stack:
     
     
     def delete(self):
-        if is_empty():
-            print("nothing to delete")
-        else:
             cur0=self.head
             cur1=cur0.next
             while cur1.next!=None:
@@ -49,6 +46,7 @@ class stack:
         while cur.next!=None:
             print(cur.data)
             cur=cur.next
+        print(cur.data)
             
     def top(self):
         cur=self.head
