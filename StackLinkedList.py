@@ -6,6 +6,7 @@ class stack:
     def __init__(self):
         self.head=node()
         
+    # there is some bug in this method
     def is_empty(self):
         if self.head==None:
             return False
